@@ -65,7 +65,7 @@ stages {
                 }
                 }
         }
-                    
+            //changes made        
        stage('Deploy and Run Application(AKS)') {
               steps {             
               //withKubeConfig([credentialsId: 'default2',
