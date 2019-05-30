@@ -1,8 +1,5 @@
 pipeline {
-/*environment {
-    registryCredential = 'dockerhub'
-       scannerHome = tool 'LocalSonarScanner'
-  }*/
+
   agent any
    
 stages {
@@ -32,57 +29,7 @@ stages {
        			}
        			}
        			
-       /*         bat 'mvn  sonar:sonar'
-                }
-            }
-       */
        
        
-       /* stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    // Requires SonarQube Scanner for Jenkins 2.7+
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }*/
         
-        
-  /*
-   stage('Create Image') {
-              steps {
-                bat "docker build -t textrecognitionservicepoc ."
-                //bat "docker tag textrecognitionservicepoc atomregistry.azurecr.io/textrecognitionservicepoc:dev"
-                }
-        }
-       stage('Push Image - ACR') {
-              steps {
-              withDockerRegistry([ credentialsId: "dockerhub", url: "https://atomregistry.azurecr.io" ]) {
-                bat "docker tag textrecognitionservicepoc atomregistry.azurecr.io/textrecognitionservicepoc"
-                bat "docker push atomregistry.azurecr.io/textrecognitionservicepoc"
-                }
-                }
-        }
-            //changes made        
-       stage('Deploy and Run Application(AKS)') {
-              steps {             
-              //withKubeConfig([credentialsId: 'default2',
-                     //serverUrl: 'https://textjenkin-jenkinccd-b723df-69dec325.hcp.centralus.azmk8s.io:443', contextName: 'textjenkinK8SClusterpoc',
-             //       clusterName: 'textjenkinK8SClusterpoc',
-               //     namespace: 'default']) {
-                     bat "kubectl apply -f azure-textrecog.yaml --record"
-                     bat "kubectl set image deployment/azuretextrecognitionservicepoc-front azuretextrecognitionservicepoc-front=atomregistry.azurecr.io/textrecognitionservicepoc:latest"                  
-                  //bat "kubectl rollout status deployment azuretextrecognitionservicepoc-front --watch=true"
-                     bat "kubectl get service --watch=false"
-                     //}
-                }
-        }
-       }
-       post {
-        failure {    // notify users when the Pipeline fails
-            mail(to: 'me@example.com', subject: "Failed Pipeline", body: "Something is wrong.")
-        }
-    }
-} */
+    
