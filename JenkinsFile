@@ -27,22 +27,7 @@ stages {
 }
 
 
-     /*  stage('SonarQube analysis') {
-            agent{
-            		label 'master'
-            	}
-            
-            steps {
-       			script{
-       					scannerHome=tool'sonarqube scanner 3.3.0'
-       				}
-       				withSonarQubeEnv('sonarqube')
-       				{
-       					sh "${scannerHome}/bin/sonar-scanner"
-       				}	                     
-       			}
-       			}*/
-       			
+   
       
        
         
