@@ -14,16 +14,12 @@ stages {
       }
     }
     
-       node {
-     stage('SCM') 
-      {
-        git 'https://github.com/KalyaniChougule/DemoSonar.git'
-           }
-         stage('SonarQube analysis') {
-        withSonarQubeEnv('My SonarQube Server') {
-            bat 'mvn clean package sonar:sonar'
-    } // SonarQube taskId is automatically attached to the pipeline context
+      stage('SonarQube analysis') {
+            steps {
+                            
+                bat 'mvn  sonar:sonar'
+                }
+            }
   }
 }
-}
-}
+   
