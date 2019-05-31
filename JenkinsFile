@@ -25,10 +25,4 @@ stages {
     } // SonarQube taskId is automatically attached to the pipeline context
   }
 }
-
-
-   
-      
-       
-        
-    
+}
