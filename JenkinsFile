@@ -13,21 +13,35 @@ stages {
         bat 'mvn test'
       }
     }
-       stage('SonarQube analysis') {
+    
+       node {
+     stage('SCM') 
+      {
+        git 'https://github.com/KalyaniChougule/DemoSonar.git'
+           }
+         stage('SonarQube analysis') {
+        withSonarQubeEnv('My SonarQube Server') {
+            bat 'mvn clean package sonar:sonar'
+    } // SonarQube taskId is automatically attached to the pipeline context
+  }
+}
+
+
+     /*  stage('SonarQube analysis') {
             agent{
             		label 'master'
             	}
             
             steps {
        			script{
-       					scannerHome=tool'sonarqube scanner 3.3.0
+       					scannerHome=tool'sonarqube scanner 3.3.0'
        				}
        				withSonarQubeEnv('sonarqube')
        				{
        					sh "${scannerHome}/bin/sonar-scanner"
        				}	                     
        			}
-       			}
+       			}*/
        			
        
        
